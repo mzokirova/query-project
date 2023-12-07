@@ -22,13 +22,15 @@ function Users() {
             .then((result) => {
     
                 if (!completed) {
-
                     setUser(result.data);
                 }
                 else {
                     const filteredData = result.data.filter((item) => {
-                        return item.completed == completed;
+                        console.log(typeof item.completed);
+                        // console.log(typeof completed);
+                        return item.completed == Boolean(completed);
                     })
+                    console.log(filteredData);
                     setUser(filteredData);
                 }
             })
